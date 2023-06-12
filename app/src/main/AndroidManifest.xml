@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"/>
+
+    <application
+        android:name=".App"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning,MissingApplicationIcon"
+        >
+        <activity
+            android:name="org.bubenheimer.MainActivity"
+            android:exported="true"
+            android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".DataSyncService"
+            android:foregroundServiceType="dataSync"
+            android:exported="false"
+            android:process=":ext"
+            tools:targetApi="Q"
+            >
+        </service>
+
+        <service
+            android:name=".SoundService"
+            android:foregroundServiceType="mediaPlayback"
+            android:exported="true"
+            android:process=":ext"
+            tools:targetApi="Q"
+            tools:ignore="ExportedService"
+            >
+        </service>
+    </application>
+</manifest>

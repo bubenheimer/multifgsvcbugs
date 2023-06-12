@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <item name="notification_id_service_1" type="id"/>
+    <item name="notification_id_service_2" type="id"/>
+</resources>
